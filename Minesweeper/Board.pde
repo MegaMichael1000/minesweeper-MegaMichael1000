@@ -123,6 +123,18 @@ public class Board {
     return coords;
   }
   
+  public int getRowId(int yClicked) {
+    yClicked -= y_pos;
+    int theRow = yClicked/cellSize;
+    return theRow;
+  }
+  
+  public int getColId(int xClicked) {
+    xClicked -= x_pos;
+    int theCol = xClicked/cellSize;
+    return theCol;
+  }
+  
   public int getRows() {return rows;}
   public int getCols() {return cols;}
   

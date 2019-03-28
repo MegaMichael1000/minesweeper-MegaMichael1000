@@ -18,6 +18,7 @@ int spacesLeft;
 boolean VALID;
 boolean SPAWN_CHECK;
 boolean CLICKED_MINE;
+boolean FIRST_CLICK;
 int rowCheck1;
 int colCheck1;
 int rowCheck2;
@@ -25,11 +26,14 @@ int colCheck2;
 int mineProximity;
 int mineX;
 int mineY;
+int clickedRow;
+int clickedCol;
 int gameState;
 
 void setup() {
   size(800,600);
   gameState = 0;
+  FIRST_CLICK = true;
   spacesLeft = (rowCount*colCount) - mineCount;
   theBoard = new Board(width/positionMod,height/positionMod2,rowCount,colCount,25);
   mineData = new int[rowCount][colCount];
@@ -143,6 +147,8 @@ void keyPressed() {
 }
 
 void clickSpace(int rowAt, int colAt) {
+  rowAt = int(rowAt);
+  colAt = int(colAt);
   if ((rowAt >= 0 && rowAt < rowCount) && (colAt >= 0 && colAt < colCount)) {
     if (spaceData[rowAt][colAt] == 0 && flagData[rowAt][colAt] != 1) {
       spaceData[rowAt][colAt] = 1;
@@ -193,6 +199,8 @@ void clickSpace(int rowAt, int colAt) {
 }
 
 void flagSpace(int rowAt, int colAt) {
+  rowAt = int(rowAt);
+  colAt = int(colAt);
   if ((rowAt >= 0 && rowAt < rowCount) && (colAt >= 0 && colAt < colCount)) {
     if (spaceData[rowAt][colAt] == 0) {
       if (flagData[rowAt][colAt] == 0) {
