@@ -101,6 +101,7 @@ void draw() {
   }
 }
 
+// Checks for any clicks with the mouse
 void mousePressed() {
   mouseCoords = theBoard.getCoords(mouseX,mouseY);
   if (mouseButton == LEFT) {
@@ -118,6 +119,7 @@ void mousePressed() {
   }
 }
 
+// Checks if one of the restart keys is pressed
 void keyPressed() {
   if (key == 'e' || key == 'E') {
     rowCount = 9;
@@ -146,6 +148,7 @@ void keyPressed() {
   }
 }
 
+// WHat the game does when a space is clicked
 void clickSpace(int rowAt, int colAt) {
   rowAt = int(rowAt);
   colAt = int(colAt);
@@ -198,6 +201,7 @@ void clickSpace(int rowAt, int colAt) {
   }
 }
 
+// Places a flag on the space
 void flagSpace(int rowAt, int colAt) {
   rowAt = int(rowAt);
   colAt = int(colAt);
@@ -220,6 +224,7 @@ void flagSpace(int rowAt, int colAt) {
   }
 }
 
+// Checks if a flag was placed properly if the player loses
 void checkFlags() {
   for (int i=0; i<rowCount; i++) {
     for (int j=0; j<colCount; j++) {
